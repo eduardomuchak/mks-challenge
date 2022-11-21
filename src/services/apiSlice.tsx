@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const urlAPI = `${process.env.BASE_URL_MKS_API}`;
+const urlAPI = `${process.env.REACT_APP_API_URL}`;
 
 export const productsApi = createApi({
   reducerPath: 'productsApi',

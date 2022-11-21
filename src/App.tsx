@@ -1,15 +1,15 @@
+import { ApiProvider } from '@reduxjs/toolkit/query/react';
+
+import { Home } from './pages/Home';
+import { productsApi } from './services/apiSlice';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApiProvider api={productsApi}>
+      <div>
+        <Home />
+      </div>
+    </ApiProvider>
   );
 }
 
