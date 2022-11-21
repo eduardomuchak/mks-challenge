@@ -1,6 +1,4 @@
-import toast, { Toaster } from 'react-hot-toast';
-
-import { Jelly } from '@uiball/loaders';
+import { Jelly, Ripples } from '@uiball/loaders';
 
 import { LoadingWrapper } from '../../components/LoadingWrapper/index.style';
 import { useGetProductQuery } from '../../services/apiSlice';
@@ -17,18 +15,17 @@ export const Home = () => {
       </LoadingWrapper>
     );
   }
-  if (isError) {
-    toast.error('Opa! Aconteceu algum erro ao buscar as informações', {
-      id: 'toast-principal',
-    });
-    return <></>;
+  if (!isError) {
+    return (
+      <LoadingWrapper>
+        <Ripples size={90} speed={2} color="rgba(217, 42, 42, 1)" />
+        <h1>Opa! Aconteceu algum erro ao buscar as informações, recarrregue a página e tente novamente.</h1>
+      </LoadingWrapper>
+    );
   }
 
   return (
     <>
-      <div>
-        <Toaster />
-      </div>
       <div> Data </div>
     </>
   );
