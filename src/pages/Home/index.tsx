@@ -1,6 +1,8 @@
 import { Jelly, Ripples } from '@uiball/loaders';
 
+import { HeaderWrapper } from '../../components/Header/index.style';
 import { LoadingWrapper } from '../../components/LoadingWrapper/index.style';
+import { Logo } from '../../components/Logo/index.style';
 import { useGetProductQuery } from '../../services/apiSlice';
 export const Home = () => {
   const { isLoading, isError } = useGetProductQuery({ page: 1, rows: 8, sort: 'id', order: 'ASC' });
@@ -15,7 +17,7 @@ export const Home = () => {
       </LoadingWrapper>
     );
   }
-  if (!isError) {
+  if (isError) {
     return (
       <LoadingWrapper>
         <Ripples size={90} speed={2} color="rgba(217, 42, 42, 1)" />
@@ -26,7 +28,12 @@ export const Home = () => {
 
   return (
     <>
-      <div> Data </div>
+      <HeaderWrapper>
+        <Logo>
+          <h1>MKS</h1>
+          <h2>Sistemas</h2>
+        </Logo>
+      </HeaderWrapper>
     </>
   );
 };
