@@ -1,5 +1,8 @@
+import { MdShoppingCart } from 'react-icons/md';
+
 import { Jelly, Ripples } from '@uiball/loaders';
 
+import { CartIcon } from '../../components/CartIcon/index.style';
 import { HeaderWrapper } from '../../components/Header/index.style';
 import { LoadingWrapper } from '../../components/LoadingWrapper/index.style';
 import { Logo } from '../../components/Logo/index.style';
@@ -33,6 +36,10 @@ export const Home = () => {
           <h1>MKS</h1>
           <h2>Sistemas</h2>
         </Logo>
+        <CartIcon>
+          <MdShoppingCart size={22} color="black" />
+          <p>0</p>
+        </CartIcon>
       </HeaderWrapper>
     </>
   );
