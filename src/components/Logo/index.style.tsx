@@ -23,4 +23,14 @@ export const Logo = styled.div`
     align-self: center;
     margin-top: 0.8rem;
   }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 32px;
+    }
+
+    h2 {
+      font-size: 16px;
+    }
+  }
 `;

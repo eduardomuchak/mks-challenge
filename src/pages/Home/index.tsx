@@ -11,6 +11,7 @@ import { Logo } from '../../components/Logo/index.style';
 import { Main } from '../../components/Main/index.style';
 import { useGetProductQuery } from '../../services/apiSlice';
 export const Home = () => {
+  const innerWidth = window.innerWidth;
   const { isLoading, isError } = useGetProductQuery({ page: 1, rows: 8, sort: 'id', order: 'ASC' });
 
   // console.log(isLoading);
@@ -40,7 +41,7 @@ export const Home = () => {
           <h2>Sistemas</h2>
         </Logo>
         <CartIcon>
-          <MdShoppingCart size={22} color="black" />
+          <MdShoppingCart size={innerWidth > 768 ? 22 : 16} color="black" />
           <p>0</p>
         </CartIcon>
       </HeaderWrapper>

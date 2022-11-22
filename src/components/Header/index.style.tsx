@@ -15,4 +15,9 @@ export const HeaderWrapper = styled.header`
   right: 0;
   height: 100px;
   width: 100vw;
+
+  @media (max-width: 768px) {
+    padding: 1rem 2rem;
+    height: 48px;
+  }
 `;

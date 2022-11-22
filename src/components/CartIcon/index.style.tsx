@@ -23,4 +23,14 @@ export const CartIcon = styled.div`
     color: black;
     line-height: 22px;
   }
+
+  @media (max-width: 768px) {
+    height: 26px;
+    width: 62px;
+    border-radius: 8px;
+
+    p {
+      font-size: 12px;
+    }
+  }
 `;
