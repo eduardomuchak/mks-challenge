@@ -9,10 +9,11 @@ import { HeaderWrapper } from '../../components/Header/index.style';
 import { LoadingWrapper } from '../../components/LoadingWrapper/index.style';
 import { Logo } from '../../components/Logo/index.style';
 import { Main } from '../../components/Main/index.style';
+import { ProductCard } from '../../components/ProductCard/index.style';
 import { useGetProductQuery } from '../../services/apiSlice';
 export const Home = () => {
   const innerWidth = window.innerWidth;
-  const { isLoading, isError } = useGetProductQuery({ page: 1, rows: 8, sort: 'id', order: 'ASC' });
+  const { data, isLoading, isError } = useGetProductQuery({ page: 1, rows: 8, sort: 'id', order: 'ASC' });
 
   // console.log(isLoading);
   // console.log(data);
@@ -45,9 +46,13 @@ export const Home = () => {
           <p>0</p>
         </CartIcon>
       </HeaderWrapper>
-      <Main>
-        <h1>Home</h1>
-      </Main>
+      {!isLoading && (
+        <Main>
+          {data.products.map((product: any) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </Main>
+      )}
       <Footer>
         <p>MKS sistemas © Todos os direitos reservados</p>
       </Footer>
