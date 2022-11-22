@@ -3,9 +3,12 @@ import { MdShoppingCart } from 'react-icons/md';
 import { Jelly, Ripples } from '@uiball/loaders';
 
 import { CartIcon } from '../../components/CartIcon/index.style';
+import { Container } from '../../components/Container/index.style';
+import { Footer } from '../../components/Footer/index.style';
 import { HeaderWrapper } from '../../components/Header/index.style';
 import { LoadingWrapper } from '../../components/LoadingWrapper/index.style';
 import { Logo } from '../../components/Logo/index.style';
+import { Main } from '../../components/Main/index.style';
 import { useGetProductQuery } from '../../services/apiSlice';
 export const Home = () => {
   const { isLoading, isError } = useGetProductQuery({ page: 1, rows: 8, sort: 'id', order: 'ASC' });
@@ -30,7 +33,7 @@ export const Home = () => {
   }
 
   return (
-    <>
+    <Container>
       <HeaderWrapper>
         <Logo>
           <h1>MKS</h1>
@@ -41,6 +44,12 @@ export const Home = () => {
           <p>0</p>
         </CartIcon>
       </HeaderWrapper>
-    </>
+      <Main>
+        <h1>Home</h1>
+      </Main>
+      <Footer>
+        <p>MKS sistemas © Todos os direitos reservados</p>
+      </Footer>
+    </Container>
   );
 };
