@@ -10,7 +10,8 @@ export const HeaderWrapper = styled.header`
   color: #ffffff;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
   height: 100px;
-  width: 99vw;
+  min-width: 99.9vw;
+  width: 100%;
   margin: 0;
 
   @media (max-width: 768px) {
