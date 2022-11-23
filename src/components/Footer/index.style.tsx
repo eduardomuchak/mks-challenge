@@ -6,7 +6,7 @@ export const FooterContainer = styled.footer`
   justify-content: center;
   align-items: center;
   height: 34px;
-  width: 100vw;
+  width: 99vw;
   background-color: #eeeeee;
   bottom: 0;
 

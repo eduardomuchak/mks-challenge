@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Main = styled.main`
+  padding-top: 40px;
+  padding-bottom: 40px;
   display: flex;
   flex-direction: row;
   justify-content: center;

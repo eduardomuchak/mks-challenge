@@ -12,7 +12,7 @@ import { useGetProductQuery } from '../../services/apiSlice';
 export const Home = () => {
   const { data, isLoading, isError } = useGetProductQuery({ page: 1, rows: 8, sort: 'id', order: 'ASC' });
 
-  console.log(data);
+  // console.log(data);
 
   if (isLoading) {
     return (
