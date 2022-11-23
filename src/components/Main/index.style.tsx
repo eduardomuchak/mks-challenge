@@ -5,8 +5,14 @@ export const Main = styled.main`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #e5e5e5;
   gap: 1.5rem 1rem;
-  width: 938px;
+  width: 100%;
+  max-width: 938px;
   flex-wrap: wrap;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+  }
 `;

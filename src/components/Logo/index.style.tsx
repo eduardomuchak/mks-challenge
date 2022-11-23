@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Logo = styled.div`
+export const LogoContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
@@ -34,3 +34,12 @@ export const Logo = styled.div`
     }
   }
 `;
+
+export function Logo() {
+  return (
+    <LogoContainer>
+      <h1>MKS</h1>
+      <h2>Sistemas</h2>
+    </LogoContainer>
+  );
+}

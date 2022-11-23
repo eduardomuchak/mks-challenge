@@ -7,8 +7,22 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
+  body {   
     background-color: #e5e5e5;
     font-family: 'Montserrat', sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+  width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+  background-color: #dcdcdc;
+  border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #EDF2F7;
+    border-radius: 5px;
   }
 `;

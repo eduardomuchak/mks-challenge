@@ -1,6 +1,8 @@
+import { MdShoppingCart } from 'react-icons/md';
+
 import styled from 'styled-components';
 
-export const CartIcon = styled.div`
+export const CartIconContainer = styled.div`
   display: flex;
   gap: 1rem;
   margin: 0px;
@@ -34,3 +36,14 @@ export const CartIcon = styled.div`
     }
   }
 `;
+
+export function CartIcon() {
+  const innerWidth = window.innerWidth;
+
+  return (
+    <CartIconContainer>
+      <MdShoppingCart size={innerWidth > 768 ? 22 : 16} color="black" />
+      <p>0</p>
+    </CartIconContainer>
+  );
+}

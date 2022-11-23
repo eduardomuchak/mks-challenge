@@ -9,12 +9,9 @@ export const HeaderWrapper = styled.header`
   background-color: #0f52ba;
   color: #ffffff;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   height: 100px;
   width: 100vw;
+  margin: 0;
 
   @media (max-width: 768px) {
     padding: 1rem 2rem;

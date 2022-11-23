@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Footer = styled.footer`
+export const FooterContainer = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,10 +8,7 @@ export const Footer = styled.footer`
   height: 34px;
   width: 100vw;
   background-color: #eeeeee;
-  padding: 0px;
-  margin: 0px;
-  position: fixed;
-  bottom: 0px;
+  bottom: 0;
 
   p {
     font-size: 12px;
@@ -20,3 +17,11 @@ export const Footer = styled.footer`
     line-height: 15px;
   }
 `;
+
+export function Footer() {
+  return (
+    <FooterContainer>
+      <p>© 2021 MKS Sistemas. Todos os direitos reservados.</p>
+    </FooterContainer>
+  );
+}

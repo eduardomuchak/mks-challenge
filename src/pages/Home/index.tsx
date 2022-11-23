@@ -1,5 +1,3 @@
-import { MdShoppingCart } from 'react-icons/md';
-
 import { Jelly, Ripples } from '@uiball/loaders';
 
 import { CartIcon } from '../../components/CartIcon/index.style';
@@ -12,11 +10,9 @@ import { Main } from '../../components/Main/index.style';
 import { ProductCard } from '../../components/ProductCard/index.style';
 import { useGetProductQuery } from '../../services/apiSlice';
 export const Home = () => {
-  const innerWidth = window.innerWidth;
   const { data, isLoading, isError } = useGetProductQuery({ page: 1, rows: 8, sort: 'id', order: 'ASC' });
 
-  // console.log(isLoading);
-  // console.log(data);
+  console.log(data);
 
   if (isLoading) {
     return (
@@ -37,14 +33,8 @@ export const Home = () => {
   return (
     <Container>
       <HeaderWrapper>
-        <Logo>
-          <h1>MKS</h1>
-          <h2>Sistemas</h2>
-        </Logo>
-        <CartIcon>
-          <MdShoppingCart size={innerWidth > 768 ? 22 : 16} color="black" />
-          <p>0</p>
-        </CartIcon>
+        <Logo />
+        <CartIcon />
       </HeaderWrapper>
       {!isLoading && (
         <Main>
@@ -53,9 +43,7 @@ export const Home = () => {
           ))}
         </Main>
       )}
-      <Footer>
-        <p>MKS sistemas © Todos os direitos reservados</p>
-      </Footer>
+      <Footer />
     </Container>
   );
 };
