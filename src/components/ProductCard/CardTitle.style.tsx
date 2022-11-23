@@ -10,9 +10,9 @@ export const CardTitle = styled.div`
   width: 218px;
   position: relative;
 
-  p {
+  p: nth-lastchild() {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 19px;
   }
 

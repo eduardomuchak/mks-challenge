@@ -4,7 +4,7 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 400px;
+  height: 328px;
   width: 218px;
   border-radius: 8px;
   background-color: #ffffff;
@@ -17,6 +17,5 @@ export const CardContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 280px;
-    height: 400px;
   }
 `;

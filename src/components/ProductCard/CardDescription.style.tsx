@@ -14,9 +14,9 @@ export const CardDescription = styled.div`
   overflow: scroll;
 
   p {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19px;
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 12px;
   }
 
   ::-webkit-scrollbar {
