@@ -1,5 +1,8 @@
 import { MdOutlineShoppingBag } from 'react-icons/md';
+import { useDispatch } from 'react-redux';
 
+import { ApiProduct } from '../../interfaces';
+import { addToCart } from '../../redux/features/cart/cartSlice';
 import { CardContainer } from './CardContainer.style';
 import { CardDescription } from './CardDescription.style';
 import { CardFooter } from './CardFooter.style';
@@ -8,10 +11,12 @@ import { CardPrice } from './CardPrice.style';
 import { CardTitle } from './CardTitle.style';
 
 interface Props {
-  product: any;
+  product: ApiProduct;
 }
 
 export function ProductCard({ product }: Props) {
+  const dispatch = useDispatch();
+
   return (
     <CardContainer>
       <CardImage src={product.photo} alt={product.name} />
@@ -28,7 +33,7 @@ export function ProductCard({ product }: Props) {
         <p>{product.description}</p>
       </CardDescription>
 
-      <CardFooter>
+      <CardFooter onClick={() => dispatch(addToCart(product))}>
         <MdOutlineShoppingBag size={innerWidth > 768 ? 18 : 16} color="#FFFFFF" />
         <p>COMPRAR</p>
       </CardFooter>

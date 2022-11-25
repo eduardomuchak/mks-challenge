@@ -9,8 +9,9 @@ import { HeaderWrapper } from '../../components/Header/index.style';
 import { LoadingWrapper } from '../../components/LoadingWrapper/index.style';
 import { Logo } from '../../components/Logo/index.style';
 import { Main } from '../../components/Main/index.style';
-import { ProductCard } from '../../components/ProductCard/index.style';
-import { Sidebar } from '../../components/Sidebar/index.style';
+import { ProductCard } from '../../components/ProductCard';
+import { Sidebar } from '../../components/Sidebar';
+import { ApiProduct } from '../../interfaces';
 import { cartState } from '../../redux/features/cart/cartSlice';
 import { useGetProductQuery } from '../../redux/services/apiSlice';
 export const Home = () => {
@@ -42,7 +43,7 @@ export const Home = () => {
       </HeaderWrapper>
       {!isLoading && (
         <Main>
-          {data.products.map((product: any) => (
+          {data.products.map((product: ApiProduct) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </Main>

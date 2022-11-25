@@ -1,27 +1,46 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface CartStateValue {
-  isOpen: boolean;
-}
+import { ApiProduct, CartItem, CartState } from '../../../interfaces';
 
-interface CartState {
-  value: CartStateValue;
-}
-
-const initialState = { value: { isOpen: false } } as CartState;
+const initialState = {
+  value: {
+    isOpen: false,
+    cartItems: [] as CartItem[],
+  },
+} as CartState;
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    openCart: (state) => {
+    openCart: (state: CartState) => {
       state.value.isOpen = true;
     },
 
     closeCart: (state: CartState) => {
-      state.value = initialState.value;
+      state.value.isOpen = false;
+    },
+    addToCart: (state: CartState, action: PayloadAction<ApiProduct>) => {
+      const product = action.payload;
+      const productAlreadyInCart = state.value.cartItems.find((item) => item.id === product.id);
+
+      if (productAlreadyInCart) {
+        productAlreadyInCart.count += 1;
+      } else {
+        state.value.cartItems.push({ ...product, count: 1 });
+      }
+    },
+    removeFromCart: (state: CartState, action: PayloadAction<CartItem>) => {
+      const product = action.payload;
+      const productAlreadyInCart = state.value.cartItems.find((item) => item.id === product.id);
+
+      if (productAlreadyInCart) {
+        productAlreadyInCart.count -= 1;
+      } else {
+        state.value.cartItems = state.value.cartItems.filter((item) => item.id !== product.id);
+      }
     },
   },
 });
 
 export const cartState = (state: any) => state.cart.value;
-export const { openCart, closeCart } = cartSlice.actions;
+export const { openCart, closeCart, addToCart, removeFromCart } = cartSlice.actions;
