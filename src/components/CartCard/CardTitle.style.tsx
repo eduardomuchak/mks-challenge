@@ -5,7 +5,7 @@ export const CardTitle = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  width: 218px;
+  width: 110px;
   position: relative;
   height: 95px;
 
@@ -13,5 +13,6 @@ export const CardTitle = styled.div`
     font-size: 13px;
     font-weight: 400;
     line-height: 17px;
+    padding-left: 8px;
   }
 `;

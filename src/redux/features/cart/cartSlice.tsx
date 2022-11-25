@@ -39,8 +39,28 @@ export const cartSlice = createSlice({
         state.value.cartItems = state.value.cartItems.filter((item) => item.id !== product.id);
       }
     },
+    increment: (state: CartState, action: PayloadAction<CartItem>) => {
+      const product = action.payload;
+      const productAlreadyInCart = state.value.cartItems.find((item) => item.id === product.id);
+
+      if (productAlreadyInCart) {
+        productAlreadyInCart.count += 1;
+      }
+    },
+    decrement: (state: CartState, action: PayloadAction<CartItem>) => {
+      const product = action.payload;
+      const productAlreadyInCart = state.value.cartItems.find((item) => item.id === product.id);
+
+      if (productAlreadyInCart) {
+        if (productAlreadyInCart.count > 1) {
+          productAlreadyInCart.count -= 1;
+        } else {
+          state.value.cartItems = state.value.cartItems.filter((item) => item.id !== product.id);
+        }
+      }
+    },
   },
 });
 
 export const cartState = (state: any) => state.cart.value;
-export const { openCart, closeCart, addToCart, removeFromCart } = cartSlice.actions;
+export const { openCart, closeCart, addToCart, removeFromCart, increment, decrement } = cartSlice.actions;

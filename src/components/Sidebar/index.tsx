@@ -4,7 +4,9 @@ import { CartItem } from '../../interfaces';
 import { cartState } from '../../redux/features/cart/cartSlice';
 import { CartCard } from '../CartCard';
 import { CloseButton } from './CloseButton.style';
+import { ProductsContainer } from './ProductsContainer.style';
 import { SidebarContainer } from './SidebarContainer.style';
+import { SidebarFooter } from './SidebarFooter.style';
 
 export function Sidebar() {
   const { cartItems } = useSelector(cartState);
@@ -15,9 +17,12 @@ export function Sidebar() {
       <div>
         <h1>Carrinho de Compras</h1>
       </div>
-      {cartItems.map((item: CartItem) => (
-        <CartCard key={item.id} product={item} />
-      ))}
+      <ProductsContainer>
+        {cartItems.map((item: CartItem) => (
+          <CartCard key={item.id} product={item} />
+        ))}
+      </ProductsContainer>
+      <SidebarFooter />
     </SidebarContainer>
   );
 }

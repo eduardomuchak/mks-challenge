@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const SidebarContainer = styled.aside`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -14,6 +15,12 @@ export const SidebarContainer = styled.aside`
   z-index: 1;
   box-shadow: -5px 0px 6px rgba(0, 0, 0, 0.13);
   animation: showSidebar 0.4s;
+  gap: 32px;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
 
   @keyframes showSidebar {
     from {
