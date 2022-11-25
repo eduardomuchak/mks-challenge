@@ -1,17 +1,17 @@
-import { ApiProvider } from '@reduxjs/toolkit/query/react';
+import { Provider } from 'react-redux';
 
 import { GlobalStyles } from './GlobalStyles';
 import { Home } from './pages/Home';
-import { productsApi } from './services/apiSlice';
+import { store } from './redux/store';
 
 function App() {
   return (
-    <ApiProvider api={productsApi}>
+    <Provider store={store}>
       <GlobalStyles />
       <div>
         <Home />
       </div>
-    </ApiProvider>
+    </Provider>
   );
 }
 

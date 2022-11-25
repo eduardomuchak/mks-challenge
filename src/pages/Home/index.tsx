@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+
 import { Jelly, Ripples } from '@uiball/loaders';
 
 import { CartIcon } from '../../components/CartIcon/index.style';
@@ -8,11 +10,12 @@ import { LoadingWrapper } from '../../components/LoadingWrapper/index.style';
 import { Logo } from '../../components/Logo/index.style';
 import { Main } from '../../components/Main/index.style';
 import { ProductCard } from '../../components/ProductCard/index.style';
-import { useGetProductQuery } from '../../services/apiSlice';
+import { Sidebar } from '../../components/Sidebar/index.style';
+import { cartState } from '../../redux/features/cart/cartSlice';
+import { useGetProductQuery } from '../../redux/services/apiSlice';
 export const Home = () => {
   const { data, isLoading, isError } = useGetProductQuery({ page: 1, rows: 8, sort: 'id', order: 'ASC' });
-
-  // console.log(data);
+  const { isOpen } = useSelector(cartState);
 
   if (isLoading) {
     return (
@@ -32,6 +35,7 @@ export const Home = () => {
 
   return (
     <Container>
+      {isOpen && <Sidebar />}
       <HeaderWrapper>
         <Logo />
         <CartIcon />
