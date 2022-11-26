@@ -4,6 +4,7 @@ import { CardImage } from './CardImage.style';
 import { CardItemCounter } from './CardItemCounter.styles';
 import { CardPrice } from './CardPrice.style';
 import { CardTitle } from './CardTitle.style';
+import { CloseButton } from './CloseButton.style';
 
 interface Props {
   product: CartItem;
@@ -17,6 +18,7 @@ export function CartCard({ product }: Props) {
       }}
     >
       <CardContainer>
+        <CloseButton product={product} />
         <CardImage src={product.photo} alt={product.name} />
 
         <CardTitle>

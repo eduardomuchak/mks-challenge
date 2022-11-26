@@ -18,9 +18,11 @@ export function Sidebar() {
         <h1>Carrinho de Compras</h1>
       </div>
       <ProductsContainer>
-        {cartItems.map((item: CartItem) => (
-          <CartCard key={item.id} product={item} />
-        ))}
+        {cartItems.length > 0 ? (
+          cartItems.map((item: CartItem) => <CartCard key={item.id} product={item} />)
+        ) : (
+          <h1>Nenhum produto no carrinho</h1>
+        )}
       </ProductsContainer>
       <SidebarFooter />
     </SidebarContainer>

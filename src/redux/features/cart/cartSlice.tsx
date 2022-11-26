@@ -29,16 +29,7 @@ export const cartSlice = createSlice({
         state.value.cartItems.push({ ...product, count: 1 });
       }
     },
-    removeFromCart: (state: CartState, action: PayloadAction<CartItem>) => {
-      const product = action.payload;
-      const productAlreadyInCart = state.value.cartItems.find((item) => item.id === product.id);
 
-      if (productAlreadyInCart) {
-        productAlreadyInCart.count -= 1;
-      } else {
-        state.value.cartItems = state.value.cartItems.filter((item) => item.id !== product.id);
-      }
-    },
     increment: (state: CartState, action: PayloadAction<CartItem>) => {
       const product = action.payload;
       const productAlreadyInCart = state.value.cartItems.find((item) => item.id === product.id);
@@ -58,6 +49,11 @@ export const cartSlice = createSlice({
           state.value.cartItems = state.value.cartItems.filter((item) => item.id !== product.id);
         }
       }
+    },
+
+    removeFromCart: (state: CartState, action: PayloadAction<CartItem>) => {
+      const product = action.payload;
+      state.value.cartItems = state.value.cartItems.filter((item) => item.id !== product.id);
     },
   },
 });
