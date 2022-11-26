@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { ApiProduct, CartItem, CartState } from '../../../interfaces';
+import { ApiProduct, Cart, CartItem, CartState } from '../../../interfaces';
 
 const initialState = {
   value: {
@@ -58,5 +58,5 @@ export const cartSlice = createSlice({
   },
 });
 
-export const cartState = (state: any) => state.cart.value;
+export const cartState = (state: Cart) => state.cart.value;
 export const { openCart, closeCart, addToCart, removeFromCart, increment, decrement } = cartSlice.actions;

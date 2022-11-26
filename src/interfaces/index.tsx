@@ -20,3 +20,7 @@ export interface CartStateValue {
 export interface CartState {
   value: CartStateValue;
 }
+
+export interface Cart {
+  cart: CartState;
+}
