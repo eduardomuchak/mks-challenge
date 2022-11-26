@@ -10,7 +10,7 @@ export const CardPrice = styled.div`
   padding-bottom: 6px;
   padding-left: 8px;
   padding-right: 8px;
-  min-width: 64px;
+  min-width: 70px;
   max-width: 100px;
   height: 26px;
   border-radius: 5px;
